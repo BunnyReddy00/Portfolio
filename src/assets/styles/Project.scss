@@ -13,11 +13,107 @@
   
 .projects-container .projects-grid .project {
     text-align: left;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
   
 .project h2:hover {
     text-decoration: underline;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+.project a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.certificate-card {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.credential-note {
+    margin-bottom: 0.75rem;
+    color: #d8d8d8;
+}
+
+.credential-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.credential-label {
+    font-weight: 600;
+}
+
+.credential-box input {
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px solid #7c7c7c;
+    background: #111827;
+    color: #fff;
+}
+
+.credential-box button {
+    width: fit-content;
+    padding: 0.6rem 0.9rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #4f46e5, #9333ea);
+    color: #fff;
+    cursor: pointer;
+}
+
+.credential-error {
+    color: #fca5a5;
+    font-size: 0.95rem;
+}
+
+.certificate-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.certificate-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #bfdbfe;
+    text-decoration: none;
+    padding: 0.65rem 0.75rem;
+    border-radius: 10px;
+    background: rgba(59, 130, 246, 0.12);
+}
+
+.certificate-link:hover {
+    text-decoration: underline;
+    background: rgba(59, 130, 246, 0.22);
+}
+
+.certificate-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 1rem;
+}
+
+.certificate-action {
+    display: block;
+    color: #dbeafe;
+    font-size: 0.92rem;
+    margin-top: 0.15rem;
 }
   
 .zoom {

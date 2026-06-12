@@ -70,12 +70,6 @@ function Expertise() {
                     <FontAwesomeIcon icon={faPython} size="3x"/>
                     <h3>Analytical Thinking</h3>
                     <p>I use structured thinking, debugging, and hands-on practice to solve coding problems and build reliable solutions. Continuous learning is a big part of my growth as a developer.</p>
-                    <div className="flex-chips">
-                        <span className="chip-title">Tech stack:</span>
-                        {labelsThird.map((label, index) => (
-                            <Chip key={index} className='chip' label={label} />
-                        ))}
-                    </div>
                 </div>
             </div>
         </div>

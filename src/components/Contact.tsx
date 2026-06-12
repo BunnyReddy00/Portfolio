@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 
 function Contact() {
 
+  const recipientEmail = 'bunnyreddy986@gmail.com';
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [message, setMessage] = useState<string>('');
@@ -21,32 +22,26 @@ function Contact() {
   const sendEmail = (e: any) => {
     e.preventDefault();
 
-    setNameError(name === '');
-    setEmailError(email === '');
-    setMessageError(message === '');
+    const hasName = name.trim() !== '';
+    const hasEmail = email.trim() !== '';
+    const hasMessage = message.trim() !== '';
 
-    /* Uncomment below if you want to enable the emailJS */
+    setNameError(!hasName);
+    setEmailError(!hasEmail);
+    setMessageError(!hasMessage);
 
-    // if (name !== '' && email !== '' && message !== '') {
-    //   var templateParams = {
-    //     name: name,
-    //     email: email,
-    //     message: message
-    //   };
+    if (!hasName || !hasEmail || !hasMessage) {
+      return;
+    }
 
-    //   console.log(templateParams);
-    //   emailjs.send('service_id', 'template_id', templateParams, 'api_key').then(
-    //     (response) => {
-    //       console.log('SUCCESS!', response.status, response.text);
-    //     },
-    //     (error) => {
-    //       console.log('FAILED...', error);
-    //     },
-    //   );
-    //   setName('');
-    //   setEmail('');
-    //   setMessage('');
-    // }
+    const subject = `Portfolio contact from ${name.trim()}`;
+    const body = `Name: ${name.trim()}\nEmail/Phone: ${email.trim()}\n\nMessage:\n${message.trim()}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipientEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+    setName('');
+    setEmail('');
+    setMessage('');
   };
 
   return (
@@ -61,6 +56,7 @@ function Contact() {
             noValidate
             autoComplete="off"
             className='contact-form'
+            onSubmit={sendEmail}
           >
             <div className='form-flex'>
               <TextField
@@ -103,7 +99,7 @@ function Contact() {
               error={messageError}
               helperText={messageError ? "Please enter the message" : ""}
             />
-            <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
+            <Button type="submit" variant="contained" endIcon={<SendIcon />}>
               Send
             </Button>
           </Box>
