@@ -21,6 +21,37 @@ function Timeline() {
     const items = Array.from(document.querySelectorAll('.vertical-timeline-element')) as HTMLElement[];
     const contents = items.map(i => i.querySelector('.vertical-timeline-element-content') as HTMLElement).filter(Boolean);
 
+    // Detect touch / mobile devices to tweak transitions (shorter, smoother)
+    const isTouch = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || window.matchMedia('(pointer: coarse)').matches);
+    if (isTouch) {
+      contents.forEach(c => {
+        if (c) c.style.transition = 'transform 260ms cubic-bezier(.2,.9,.2,1), opacity 180ms ease';
+      });
+    }
+
+    // Initialize each item with a directional class so the initial load animates
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    items.forEach((el, idx) => {
+      const content = contents[idx];
+      if (!content) return;
+      const rect = el.getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      const distance = center - vh / 2;
+      const norm = distance / (vh / 2);
+      const clamped = Math.max(-1, Math.min(1, norm));
+      // set starting class based on whether element is above or below center
+      if (Math.abs(clamped) < 0.85) {
+        el.classList.add('in-view');
+        el.classList.remove('from-top', 'from-bottom');
+      } else if (clamped < 0) {
+        el.classList.add('from-top');
+        el.classList.remove('from-bottom', 'in-view');
+      } else {
+        el.classList.add('from-bottom');
+        el.classList.remove('from-top', 'in-view');
+      }
+    });
+
     let rafId = 0;
     const update = () => {
       const vh = window.innerHeight || document.documentElement.clientHeight;
@@ -34,6 +65,20 @@ function Timeline() {
         const clamped = Math.max(-1, Math.min(1, norm));
         const translate = clamped * 24; // px
         const opacity = Math.max(0, 1 - Math.abs(clamped));
+
+        // Directional class handling so animation plays from correct side
+        if (Math.abs(clamped) < 0.85) {
+          el.classList.add('in-view');
+          el.classList.remove('from-top', 'from-bottom');
+        } else if (clamped < 0) {
+          el.classList.add('from-top');
+          el.classList.remove('from-bottom', 'in-view');
+        } else {
+          el.classList.add('from-bottom');
+          el.classList.remove('from-top', 'in-view');
+        }
+
+        // Apply transform/opacity; CSS transition will animate movement on non-RAF frames
         content.style.transform = `translateY(${translate}px)`;
         content.style.opacity = String(opacity);
       });

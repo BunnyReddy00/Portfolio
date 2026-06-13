@@ -175,9 +175,26 @@ p, a, h1, h2, h3, h4, h5, label, button {
 
 /* Small phone adjustments */
 @media (max-width: 420px) {
-  body { font-size: 1rem !important }
+  body { font-size: 0.95rem !important }
   .container { margin-top: 48px }
   .items-container { padding: 6% 5% }
+}
+
+/* Tighter mobile typography for professional look */
+@media (max-width: 480px) {
+  body { font-size: 0.95rem !important }
+  h1 { font-size: 1.4rem; line-height: 1.2; margin-bottom: 0.6rem }
+  h2 { font-size: 1.15rem; line-height: 1.25 }
+  h3 { font-size: 1rem }
+  p, a, label, button { font-size: 0.95rem }
+}
+
+@media (max-width: 360px) {
+  body { font-size: 0.9rem !important }
+  h1 { font-size: 1.25rem }
+  h2 { font-size: 1.05rem }
+  p, a, label, button { font-size: 0.9rem }
+  .items-container { padding: 6% 4% }
 }
 
 /* make general containers mobile-friendly */

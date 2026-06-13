@@ -36,7 +36,7 @@
 
 /* custom entry animations that respect scroll direction */
 .vertical-timeline-element .vertical-timeline-element-content {
-    transition: none;
+    transition: transform 320ms cubic-bezier(.2,.9,.2,1), opacity 220ms ease;
     opacity: 0;
     background: var(--card-bg);
     color: var(--text);
