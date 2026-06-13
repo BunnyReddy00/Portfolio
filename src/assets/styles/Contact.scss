@@ -23,6 +23,13 @@
   }
 }
 
+/* dark-mode overrides */
+.dark-mode .contact-form {
+  button { background-color: var(--accent); color: var(--text) }
+  fieldset { background-color: rgba(255,255,255,0.03); border: 1px solid var(--card-border) }
+  label { color: var(--text) }
+}
+
 label {
   font-size: 1.2rem;
   font-family: 'DomaineDispNar-Medium', sans-serif;

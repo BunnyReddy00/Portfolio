@@ -1,38 +1,150 @@
 .vertical-timeline span {
-    color: white;
+    color: var(--text);
     font-family: 'Courier Prime', monospace;
 }
 
-.vertical-timeline p {
-    color: rgb(39, 40, 34);
-}
-
-.vertical-timeline-element p {
-    color: rgb(39, 40, 34);
-}
-
-.vertical-timeline-element h3 {
-    color: rgb(39, 40, 34);
-}
-
-.vertical-timeline-element h4 {
-    color: rgb(39, 40, 34);
-}
-
+.vertical-timeline p,
+.vertical-timeline-element p,
+.vertical-timeline-element h3,
+.vertical-timeline-element h4,
 .vertical-timeline-element span {
-    color: rgb(39, 40, 34);
+    color: var(--text);
 }
 
 .vertical-timeline-element .vertical-timeline-element-date {
-    color: white;
+    color: var(--muted);
 }
 
 .svg-inline--fa {
-    color: white;
+    color: var(--text);
 }
 
 @media screen and (max-width: 1170px) {
     .vertical-timeline-element .vertical-timeline-element-date {
-        color: rgb(39, 40, 34);
+        color: var(--muted);
     }
+}
+
+/* timeline spacing for mobile */
+@media (max-width: 700px) {
+    .vertical-timeline::before { left: 20px }
+    .vertical-timeline-element { margin: 0 0 24px 40px }
+    .vertical-timeline-element-content { padding: 0.8rem 1rem }
+    .vertical-timeline-element .vertical-timeline-element-date { font-size: 0.85rem }
+    .vertical-timeline-element-icon { left: 8px }
+}
+
+/* custom entry animations that respect scroll direction */
+.vertical-timeline-element .vertical-timeline-element-content {
+    transition: none;
+    opacity: 0;
+    background: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 8px 20px rgba(2,6,23,0.4);
+    font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+    font-weight: 400 !important;
+    line-height: 1.45 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.vertical-timeline-element.from-top .vertical-timeline-element-content {
+    transform: translateY(-24px);
+}
+
+.vertical-timeline-element.from-bottom .vertical-timeline-element-content {
+    transform: translateY(24px);
+}
+
+.vertical-timeline-element.in-view .vertical-timeline-element-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* timeline track and icon */
+.vertical-timeline::before {
+    background: var(--card-border);
+}
+
+.vertical-timeline-element-icon {
+    box-shadow: 0 0 0 6px var(--card-border);
+    border: none;
+    background: var(--accent) !important;
+    color: var(--text) !important;
+}
+
+/* arrow color */
+.vertical-timeline-element-content .vertical-timeline-element-date {
+    color: var(--muted);
+}
+
+/* Outer date (beside the icon) should be clearly visible on dark backgrounds */
+.vertical-timeline-element-date {
+    color: var(--text) !important;
+    font-weight: 600 !important;
+    background: transparent !important;
+    z-index: 3;
+}
+
+/* Keep the date inside the white content box dark for contrast */
+.vertical-timeline-element .vertical-timeline-element-content .vertical-timeline-element-date {
+    color: rgb(39, 40, 34) !important;
+}
+
+.vertical-timeline-element-content:before {
+    border-right: 7px solid var(--card-bg) !important;
+}
+
+/* In dark-mode, keep timeline content boxes white with original dark text and same font */
+.dark-mode .vertical-timeline-element .vertical-timeline-element-content {
+    background: #ffffff !important;
+    color: rgb(39, 40, 34) !important;
+    border: 1px solid rgba(0,0,0,0.06) !important;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.08) !important;
+    font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.dark-mode .vertical-timeline-element .vertical-timeline-element-content:before {
+    border-right: 7px solid #ffffff !important;
+}
+
+.dark-mode .vertical-timeline-element .vertical-timeline-element-date {
+    color: var(--text) !important;
+}
+
+/* Ensure the date/year text is visible in dark mode regardless of structure */
+.dark-mode .vertical-timeline-element-date,
+.dark-mode .vertical-timeline-element .vertical-timeline-element-date,
+.dark-mode .vertical-timeline-element .vertical-timeline-element-date * {
+    color: var(--text) !important;
+    background: transparent !important;
+    font-weight: 600 !important;
+}
+
+/* Force specific inner text elements to dark for guaranteed contrast */
+.dark-mode .vertical-timeline-element .vertical-timeline-element-content h3,
+.dark-mode .vertical-timeline-element .vertical-timeline-element-content h4,
+.dark-mode .vertical-timeline-element .vertical-timeline-element-content p,
+.dark-mode .vertical-timeline-element .vertical-timeline-element-content span {
+    color: rgb(39, 40, 34) !important;
+}
+
+/* icons inside timeline content */
+.dark-mode .vertical-timeline-element .vertical-timeline-element-content .svg-inline--fa {
+    color: rgb(39, 40, 34) !important;
+}
+
+/* Ensure the outer date (beside icon) sits above the timeline track and is readable */
+.dark-mode .vertical-timeline-element-date {
+    position: relative !important;
+    z-index: 9999 !important;
+    color: var(--text) !important;
+    mix-blend-mode: normal !important;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.35) !important;
+}
+
+/* Lower the timeline track in dark-mode so dates aren't obscured */
+.dark-mode .vertical-timeline::before {
+    z-index: 1 !important;
 }

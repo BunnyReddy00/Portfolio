@@ -8,6 +8,25 @@ body {
   font-size: 1.1rem !important;
 }
 
+/* Color system - defaults suitable for dark mode */
+:root {
+  --bg: #0d1116;
+  --text: #e6eef8;         /* primary text */
+  --muted: #9fb0c9;        /* secondary text */
+  --card-bg: rgba(255,255,255,0.03);
+  --card-border: rgba(255,255,255,0.06);
+  --accent: #5000ca;
+}
+
+.light-mode {
+  --bg: #f8f9fa;
+  --text: #0d1116;
+  --muted: #475569;
+  --card-bg: rgba(0,0,0,0.04);
+  --card-border: rgba(0,0,0,0.08);
+  --accent: #4f46e5;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace !important;
   font-size: 1rem !important;
@@ -24,12 +43,12 @@ a {
 }
 
 a:hover {
-  color: #5000ca;
+  color: var(--accent);
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
 p, a, h1, h2, h3, h4, h5, label, button {
-  color: white;
+  color: var(--text);
   font-family: "Lato", sans-serif;
 }
 
@@ -152,4 +171,18 @@ p, a, h1, h2, h3, h4, h5, label, button {
       padding: 5% 5%;
     }
   }
+}
+
+/* Small phone adjustments */
+@media (max-width: 420px) {
+  body { font-size: 1rem !important }
+  .container { margin-top: 48px }
+  .items-container { padding: 6% 5% }
+}
+
+/* make general containers mobile-friendly */
+@media (max-width: 768px) {
+  .items-container, .container { padding-left: 5% !important; padding-right: 5% !important }
+  .header-image { height: 260px }
+  .header-image img { height: 260px }
 }
