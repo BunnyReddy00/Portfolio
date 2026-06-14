@@ -203,3 +203,40 @@ p, a, h1, h2, h3, h4, h5, label, button {
   .header-image { height: 260px }
   .header-image img { height: 260px }
 }
+
+/* Additional responsive refinements for smaller devices */
+@media (max-width: 1024px) {
+  body { font-size: 1rem !important }
+  h1 { font-size: 2.6rem }
+  .about-section { padding-left: 6%; padding-right: 6%; }
+}
+
+@media (max-width: 768px) {
+  .about-section { min-height: 420px }
+  .about-section .content h1 { font-size: 2.6rem !important }
+  .about-section .content p { font-size: 1rem }
+  .header-image { height: 200px }
+  .header-image img { height: 200px }
+  .navigation-bar button { font-size: 1rem }
+  .navigation-bar { padding: 8px 12px }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 0.95rem !important }
+  h1 { font-size: 1.8rem }
+  h2 { font-size: 1.05rem }
+  .about-section { padding: 28px 5% !important; min-height: auto }
+  .about-section .image-wrapper img { max-width: 96px }
+  .items-container { padding: 5% 4% }
+  .projects-container .projects-grid { grid-template-columns: 1fr }
+  .skills-container .skills-grid { grid-template-columns: repeat(2, 1fr) }
+}
+
+@media (max-width: 360px) {
+  body { font-size: 0.88rem !important }
+  h1 { font-size: 1.5rem }
+  .about-section .content p { font-size: 0.95rem }
+  .about-section .image-wrapper img { max-width: 80px }
+  .skills-container .skills-grid { grid-template-columns: 1fr }
+  .footer { padding: 24px 10px }
+}
