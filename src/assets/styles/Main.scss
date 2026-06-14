@@ -135,17 +135,24 @@
         }
 
         .about-section {
-            padding-top: 70px;
-            display: block;
+            /* center hero vertically on small screens */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 0;
             padding-left: 4%;
             padding-right: 4%;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
 
         .about-section .content {
-            width: 90%;
+            width: 100%;
             padding-left: 5%;
             padding-right: 5%;
             padding-bottom: 5%;
+            text-align: center;
         }
 
         .about-section .image-wrapper {
@@ -306,17 +313,24 @@
         }
 
         .about-section {
-            padding-top: 150px;
-            display: block;
+            /* center hero vertically on narrower tablets/phones */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 0;
             padding-left: 0px;
             padding-right: 0px;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
 
         .about-section .content {
-            width: 90%;
+            width: 100%;
             padding-left: 5%;
             padding-right: 5%;
             padding-bottom: 5%;
+            text-align: center;
         }
 
         .about-section .image-wrapper {
