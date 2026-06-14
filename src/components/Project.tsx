@@ -25,19 +25,19 @@ function Project() {
             title: 'Library Management System',
             desc: 'Java application for managing books, students and circulation flows.',
             tech: ['Java', 'JDBC', 'MySQL'],
-            repo: 'https://github.com/bunnyreddy986'
+            repo: 'https://github.com/BunnyReddy00'
         },
         {
             title: 'Student Result Management System',
             desc: 'Stores and computes student marks and generates reports.',
             tech: ['Java', 'OOP', 'File I/O'],
-            repo: 'https://github.com/bunnyreddy986'
+            repo: 'https://github.com/BunnyReddy00'
         },
         {
             title: 'Personal Portfolio Website',
             desc: 'This portfolio (React) showcasing projects, contact, and timeline.',
             tech: ['React', 'Sass', 'Responsive'],
-            repo: 'https://github.com/bunnyreddy986'
+            repo: 'https://github.com/BunnyReddy00'
         }
     ];
 

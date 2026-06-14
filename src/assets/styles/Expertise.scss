@@ -19,6 +19,12 @@
     align-items: center;
     text-align: left;
 }
+
+/* Per-icon brand colors (override white) */
+.skills-container .react-icon { color: #87CEEB; }
+.skills-container .docker-icon { color: #2496ED; }
+.skills-container .python-icon { color: #3776AB; }
+ 
   
 .chip {
     color: var(--text) !important;

@@ -43,7 +43,7 @@ function Expertise() {
             <h1>Expertise</h1>
             <div className="skills-grid">
                 <div className="skill">
-                    <FontAwesomeIcon icon={faReact} size="3x"/>
+                    <FontAwesomeIcon icon={faReact} size="3x" color="skyblue" className="react-icon"/>
                     <h3>Java & Web Development</h3>
                     <p>I am building a strong foundation in Java, web technologies, and object-oriented programming. I enjoy creating practical applications and improving my coding and problem-solving skills every day.</p>
                     <div className="flex-chips">
@@ -55,7 +55,7 @@ function Expertise() {
                 </div>
 
                 <div className="skill">
-                    <FontAwesomeIcon icon={faDocker} size="3x"/>
+                    <FontAwesomeIcon icon={faDocker} size="3x" className="docker-icon"/>
                     <h3>Projects & Learning</h3>
                     <p>I work on small but meaningful projects such as library systems, result management tools, and portfolio websites to strengthen my development skills and showcase my progress.</p>
                     <div className="flex-chips">
@@ -67,7 +67,7 @@ function Expertise() {
                 </div>
 
                 <div className="skill">
-                    <FontAwesomeIcon icon={faPython} size="3x"/>
+                    <FontAwesomeIcon icon={faPython} size="3x" className="python-icon"/>
                     <h3>Analytical Thinking</h3>
                     <p>I use structured thinking, debugging, and hands-on practice to solve coding problems and build reliable solutions. Continuous learning is a big part of my growth as a developer.</p>
                 </div>
