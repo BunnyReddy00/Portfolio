@@ -100,14 +100,14 @@ function Timeline() {
         <VerticalTimeline>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            contentStyle={{ background: 'var(--card-bg)', color: 'var(--text)' }}
-            contentArrowStyle={{ borderRight: '7px solid  var(--card-bg)' }}
+            contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
+            contentArrowStyle={{ borderRight: '7px solid  white' }}
             date="2022 - 2027"
-            iconStyle={{ background: 'var(--accent)', color: 'var(--text)' }}
+            iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
             <h3 className="vertical-timeline-element-title">B.Tech in Computer Science Engineering</h3>
-            <h4 className="vertical-timeline-element-subtitle">2022 – 2027</h4>
+            <h4 className="vertical-timeline-element-subtitle">2023 – 2027</h4>
             <p>
               Pursuing a strong foundation in programming, software development, and computing fundamentals.
             </p>
