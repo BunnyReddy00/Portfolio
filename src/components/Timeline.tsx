@@ -121,7 +121,7 @@ function Timeline() {
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="2022 - 2027"
+            date="2023 - 2027"
             iconStyle={{ background: 'var(--accent)', color: 'var(--text)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
