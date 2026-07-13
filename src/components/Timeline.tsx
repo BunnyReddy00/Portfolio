@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import '../assets/styles/Timeline.scss'
 
@@ -21,7 +21,6 @@ function Timeline() {
     const items = Array.from(document.querySelectorAll('.vertical-timeline-element')) as HTMLElement[];
     const contents = items.map(i => i.querySelector('.vertical-timeline-element-content') as HTMLElement).filter(Boolean);
 
-    // Detect touch / mobile devices to tweak transitions (shorter, smoother)
     const isTouch = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || window.matchMedia('(pointer: coarse)').matches);
     if (isTouch) {
       contents.forEach(c => {
@@ -29,7 +28,6 @@ function Timeline() {
       });
     }
 
-    // Initialize each item with a directional class so the initial load animates
     const vh = window.innerHeight || document.documentElement.clientHeight;
     items.forEach((el, idx) => {
       const content = contents[idx];
@@ -39,7 +37,6 @@ function Timeline() {
       const distance = center - vh / 2;
       const norm = distance / (vh / 2);
       const clamped = Math.max(-1, Math.min(1, norm));
-      // set starting class based on whether element is above or below center
       if (Math.abs(clamped) < 0.85) {
         el.classList.add('in-view');
         el.classList.remove('from-top', 'from-bottom');
@@ -61,12 +58,11 @@ function Timeline() {
         const rect = el.getBoundingClientRect();
         const center = rect.top + rect.height / 2;
         const distance = center - vh / 2;
-        const norm = distance / (vh / 2); // -1 .. 1
+        const norm = distance / (vh / 2);
         const clamped = Math.max(-1, Math.min(1, norm));
-        const translate = clamped * 24; // px
+        const translate = clamped * 24;
         const opacity = Math.max(0, 1 - Math.abs(clamped));
 
-        // Directional class handling so animation plays from correct side
         if (Math.abs(clamped) < 0.85) {
           el.classList.add('in-view');
           el.classList.remove('from-top', 'from-bottom');
@@ -78,7 +74,6 @@ function Timeline() {
           el.classList.remove('from-top', 'in-view');
         }
 
-        // Apply transform/opacity; CSS transition will animate movement on non-RAF frames
         content.style.transform = `translateY(${translate}px)`;
         content.style.opacity = String(opacity);
       });
